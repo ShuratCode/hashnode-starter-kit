@@ -128,13 +128,13 @@ const Post = ({ publication, post }: PostProps) => {
 				/>
 				<style dangerouslySetInnerHTML={{ __html: highlightJsMonokaiTheme }}></style>
 			</Head>
-			<h1 className="text-4xl font-bold leading-tight tracking-tight text-black dark:text-white">
+			<h1 className="text-4xl font-bold leading-tight tracking-tight text-brand-dark dark:text-white">
 				{post.title}
 			</h1>
 			<div className="flex tracking-tight gap-2 text-neutral-600 dark:text-neutral-400" dir="rtl">
 				<DateFormatter dateString={post.publishedAt} />
 				{'•'}
-				<span>{post.readTimeInMinutes} min read</span>
+				<span>{post.readTimeInMinutes} דקות קריאה</span>
 			</div>
 			{!!coverImageSrc && (
 				<div className="w-full">

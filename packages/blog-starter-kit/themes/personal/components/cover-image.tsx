@@ -15,7 +15,7 @@ export const CoverImage = ({ title, src, slug, priority = false }: Props) => {
 		<div className="relative pt-[52.5%]">
 			<Image
 				src={src}
-				alt={`Cover Image for ${title}`}
+				alt={`תמונת כותרת עבור ${title}`}
 				className="w-full rounded-md border object-cover hover:opacity-90 dark:border-neutral-800"
 				fill
 				unoptimized

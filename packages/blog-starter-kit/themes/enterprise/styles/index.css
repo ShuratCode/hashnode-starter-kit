@@ -38,7 +38,7 @@
     color: rgba(238, 238, 238, 1);
 }
 
-/* Code block container with Mac-style header */
+/* Code block container */
 .prose pre {
     direction: ltr !important;
     text-align: left !important;
@@ -51,25 +51,13 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Mac-style window header */
+/* Code block header */
 .prose pre::before {
-    content: '● ● ●';
+    content: '';
     display: block;
-    height: 2.5rem;
+    height: 0.5rem;
     background: #2d2d2d;
     border-bottom: 1px solid #1e1e1e;
-    padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #ff5f56;
-    font-size: 0.75rem;
-    letter-spacing: 0.25rem;
-    line-height: 1;
-    text-shadow: 
-        0 0 0 #ff5f56,
-        0.5rem 0 0 #ffbd2e,
-        1rem 0 0 #27c93f;
     direction: ltr;
 }
 

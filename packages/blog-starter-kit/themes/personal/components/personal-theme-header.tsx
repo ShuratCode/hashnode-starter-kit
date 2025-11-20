@@ -32,7 +32,7 @@ export const PersonalHeader = () => {
 				<li>
 					<DropdownMenu.Root>
 						<DropdownMenu.Trigger asChild>
-							<button>More</button>
+							<button>עוד</button>
 						</DropdownMenu.Trigger>
 						<DropdownMenu.Portal>
 							<DropdownMenu.Content
@@ -62,6 +62,10 @@ export const PersonalHeader = () => {
 
 	return (
 		<header className="grid grid-cols-2 items-center gap-5 ">
+			<div className="col-span-full flex flex-row items-center justify-between gap-4 md:col-span-1 md:justify-start">
+				<nav>{navList}</nav>
+				<ToggleTheme className="hidden md:block" />
+			</div>
 			<div className="col-span-full md:col-span-1">
 				<div className="flex justify-between">
 					<h1>
@@ -86,16 +90,6 @@ export const PersonalHeader = () => {
 					</h1>
 					<ToggleTheme className="md:hidden" />
 				</div>
-			</div>
-			<div className="col-span-full flex flex-row items-center justify-between gap-4 md:col-span-1 md:justify-end">
-				<nav>{navList}</nav>
-				<ToggleTheme className="hidden md:block" />
-				{/* <Button
-          label=""
-          type="outline"
-          className="!p-2"
-          icon={<NewsletterPlusSVG className="w-5 h-5 fill-current" />}
-        /> */}
 			</div>
 		</header>
 	);

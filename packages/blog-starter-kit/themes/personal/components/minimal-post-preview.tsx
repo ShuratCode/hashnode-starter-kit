@@ -28,7 +28,7 @@ export const MinimalPostPreview = ({ title, date, slug, commentCount }: Props) =
 					<>
 						<span>&middot;</span>
 						<Link href={postURL} className="text-sm text-neutral-600 dark:text-neutral-400">
-							{commentCount} comments
+							{commentCount} תגובות
 						</Link>
 					</>
 				)}

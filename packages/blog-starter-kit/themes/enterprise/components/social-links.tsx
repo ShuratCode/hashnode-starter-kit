@@ -1,12 +1,12 @@
-import Link from 'next/link';
 import { useAppContext } from './contexts/appContext';
-import { GithubSVG, HashnodeSVG, LinkedinSVG, RssSVG, XSVG } from './icons';
+import { FacebookSVG, GithubSVG, HashnodeSVG, LinkedinSVG, RssSVG, TelegramSVG, XSVG } from './icons';
 
 export const SocialLinks = ({ isSidebar }: { isSidebar?: boolean }) => {
 	const { publication } = useAppContext();
 	const hasSocialLinks = publication?.links
 		? !Object.values(publication.links!).every((val) => val === '')
 		: false;
+	const hashnodeRssUrl = publication?.url ? `${publication.url}/rss.xml` : '/rss.xml';
 	return (
 		<>
 			<div
@@ -63,16 +63,34 @@ export const SocialLinks = ({ isSidebar }: { isSidebar?: boolean }) => {
 					</>
 				)}
 
-				<Link
-					prefetch={false}
-					href={`/rss.xml`}
+				<a
+					href="https://t.me/thecodeline"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Find us on Telegram, external website, opens in new tab"
+					className="flex flex-row items-center justify-center rounded-full border border-slate-200 p-2 hover:bg-slate-100 hover:text-[#229ED9] dark:border-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-[#229ED9]"
+				>
+					<TelegramSVG className="h-5 w-5 stroke-current" />
+				</a>
+				<a
+					href="https://www.facebook.com/TheCodeLineBlog"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Find us on Facebook, external website, opens in new tab"
+					className="flex flex-row items-center justify-center rounded-full border border-slate-200 p-2 hover:bg-slate-100 hover:text-[#1877F2] dark:border-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-[#1877F2]"
+				>
+					<FacebookSVG className="h-5 w-5 stroke-current" />
+				</a>
+
+				<a
+					href={hashnodeRssUrl}
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="Open blog XML Feed, opens in new tab"
 					className="flex flex-row items-center justify-center rounded-full border border-slate-200 p-2 hover:bg-slate-100 dark:border-neutral-800 dark:hover:bg-neutral-600"
 				>
 					<RssSVG className="h-5 w-5 stroke-current" />
-				</Link>
+				</a>
 			</div>
 		</>
 	);

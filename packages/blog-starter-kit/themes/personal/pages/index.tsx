@@ -88,7 +88,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 					{posts.length > 0 && <MinimalPosts context="home" posts={posts} />}
 					{!loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
 						<button onClick={loadMore}>
-							Load more
+							טען עוד מאמרים
 						</button>
 					)}
 					{loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
