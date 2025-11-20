@@ -6,17 +6,40 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: ['Rubik', 'sans-serif'],
+				mono: ['Fira Code', 'monospace'],
+			},
 			colors: {
 				'accent-1': '#FAFAFA',
 				'accent-2': '#EAEAEA',
 				'accent-7': '#333',
 				success: '#0070f3',
 				cyan: '#79FFE1',
-				primary: colors.blue,
+				primary: {
+					...colors.blue,
+					dark: '#0F2C59',
+					accent: '#1E40AF',
+				},
+				brand: {
+					dark: '#0F2C59',
+					accent: '#1E40AF',
+					blue: '#3B82F6',
+					cyan: '#06B6D4',
+					bg: '#FFFFFF',
+					bgAlt: '#F8FAFC',
+				},
 			},
 			typography: () => ({
 				DEFAULT: {
 				  css: {
+					fontFamily: 'Rubik, sans-serif',
+					fontSize: '1.125rem',
+					lineHeight: '1.75',
+					color: '#0F2C59',
+					'--tw-prose-headings': '#0F2C59',
+					'--tw-prose-links': '#1E40AF',
+					'--tw-prose-bold': '#0F2C59',
 					'div[data-node-type="callout"]': {
 					  display: 'flex',
 					  'justify-content': 'flex-start',

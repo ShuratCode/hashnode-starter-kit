@@ -19,11 +19,11 @@ const AuthorCard = ({ author }: { author: PostFullFragment['author']; }) => {
         className="flex w-full flex-wrap items-center justify-between overflow-hidden px-0 py-2.5"
       >
         <div className="flex flex-wrap items-center overflow-hidden">
-          <a href={`https://hashnode.com/@${author.username}`} title={author.name} className="mr-2 w-8">
+          <a href={`https://hashnode.com/@${author.username}`} title={author.name} className="me-2 w-8">
             <ResizableImage
               src={author.profilePicture || DEFAULT_AVATAR}
               resize={{ w: 200, h: 200, c: 'face' }}
-              className="mr-3 h-8 w-8 rounded-full"
+              className="me-3 h-8 w-8 rounded-full"
             />
           </a>
           <div className="flex flex-row items-center text-clip">
@@ -54,12 +54,12 @@ export default function CoAuthorsModal({ closeModal }: CoAuthorsModalProps) {
         />
         <DialogPrimitive.Content
           onEscapeKeyDown={closeModal}
-          className="fixed bottom-0 left-0 right-0 z-50 flex w-full max-w-[1200px] flex-col items-center overflow-hidden rounded-b-none rounded-t-lg border-slate-200 bg-white text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-50 md:bottom-50 md:left-50 md:w-96 md:-translate-x-1/2 md:translate-y-1/2 md:rounded-xl lg:w-108 xl:w-116"
+          className="fixed bottom-0 start-0 end-0 z-50 flex w-full max-w-[1200px] flex-col items-center overflow-hidden rounded-b-none rounded-t-lg border-slate-200 bg-white text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-50 md:bottom-50 md:start-50 md:w-96 md:-translate-x-1/2 md:translate-y-1/2 md:rounded-xl lg:w-108 xl:w-116"
         >
           <DialogPrimitive.DialogTitle className="w-full px-6 py-4 text-lg font-semibold">
             Authors in this article
           </DialogPrimitive.DialogTitle>
-          <DialogPrimitive.Close className="absolute right-2 top-4 text-slate-900 dark:text-slate-50" asChild>
+          <DialogPrimitive.Close className="absolute end-2 top-4 text-slate-900 dark:text-slate-50" asChild>
           <Button
                 type="outline"
                 label=""

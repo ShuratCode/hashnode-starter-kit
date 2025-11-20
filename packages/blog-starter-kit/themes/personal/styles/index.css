@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	body {
+		font-family: 'Rubik', sans-serif;
+		background-color: #FFFFFF;
+		color: #0F2C59;
+	}
+}
+
 .hashnode-content-style{
-    @apply prose break-words text-slate-950 first:prose-p:mt-0 prose-img:max-w-full prose-p:leading-snug prose-a:underline hover:prose-a:bg-primary-50 dark:hover:prose-a:text-primary-500 dark:hover:prose-a:bg-neutral-800 dark:text-neutral-50 prose-blockquote:leading-snug prose-a:leading-snug prose-figure:leading-snug prose-figcaption:leading-snug prose-pre:leading-snug prose-li:leading-snug prose-ul:leading-snug prose-ol:leading-snug prose-th:leading-snug prose-td:leading-snug lg:prose-xl dark:prose-invert dark:prose-pre:bg-neutral-900 first:prose-h1:mt-0 first:prose-h2:mt-0 first:prose-h3:mt-0 first:prose-h4:mt-0 first:prose-h5:mt-0;
+    @apply prose prose-lg break-words text-brand-dark first:prose-p:mt-0 prose-img:max-w-full prose-p:leading-snug prose-a:text-brand-accent prose-a:underline hover:prose-a:bg-brand-bgAlt dark:hover:prose-a:text-brand-accent dark:hover:prose-a:bg-neutral-800 dark:text-neutral-50 prose-blockquote:leading-snug prose-a:leading-snug prose-figure:leading-snug prose-figcaption:leading-snug prose-pre:leading-snug prose-li:leading-snug prose-ul:leading-snug prose-ol:leading-snug prose-th:leading-snug prose-td:leading-snug dark:prose-invert first:prose-h1:mt-0 first:prose-h2:mt-0 first:prose-h3:mt-0 first:prose-h4:mt-0 first:prose-h5:mt-0;
 }
 
 /* Override to remove the backtick */
@@ -11,38 +19,141 @@
     content: none;
 }
 
+/* Inline code styling */
 .prose code {
+    direction: ltr;
+    text-align: left;
     border-radius: 0.25rem;
     font-weight: 400 !important;
-    padding: 0.25rem;
-    --tw-text-opacity: 1;
-    color: rgba(0, 0, 0, var(--tw-text-opacity));
-    font-size: 80%;
+    padding: 0.25rem 0.5rem;
+    font-size: 85%;
+    font-family: 'Fira Code', monospace;
     background: #f0efed;
+    color: #0F2C59;
+    unicode-bidi: isolate;
 }
   
 .dark .prose code {
-    --tw-bg-opacity: 1;
-    background-color: rgba(36, 41, 46, var(--tw-bg-opacity));
-    --tw-text-opacity: 1;
-    color: rgba(238, 238, 238, var(--tw-text-opacity));
+    background-color: rgba(36, 41, 46, 1);
+    color: rgba(238, 238, 238, 1);
 }
-  
+
+/* Code block container with Mac-style header */
 .prose pre {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+    direction: ltr !important;
+    text-align: left !important;
+    position: relative;
+    background: #1e1e1e !important;
+    border-radius: 0.5rem;
+    padding: 0 !important;
+    margin: 1.5rem 0 !important;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-  
+
+/* Mac-style window header */
+.prose pre::before {
+    content: '● ● ●';
+    display: block;
+    height: 2.5rem;
+    background: #2d2d2d;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ff5f56;
+    font-size: 0.75rem;
+    letter-spacing: 0.25rem;
+    line-height: 1;
+    text-shadow: 
+        0 0 0 #ff5f56,
+        0.5rem 0 0 #ffbd2e,
+        1rem 0 0 #27c93f;
+    direction: ltr;
+}
+
+/* Code block content */
 .prose pre code {
-    background-color: transparent;
-    border-radius: 0px;
+    direction: ltr !important;
+    text-align: left !important;
+    display: block;
+    background-color: transparent !important;
+    border-radius: 0;
     font-weight: 500 !important;
-    padding: 0px;
-    font-size: 100%;
-    color: #fafafa;
+    padding: 1rem 1.5rem !important;
+    font-size: 0.875rem;
+    font-family: 'Fira Code', monospace !important;
+    color: #d4d4d4;
+    overflow-x: auto;
+    unicode-bidi: isolate;
+    line-height: 1.6;
 }
 
 .dark .prose pre code {
-    background-color: transparent;
-    color: #ddd;
+    color: #d4d4d4;
+}
+
+/* Copy button for code blocks */
+.prose pre {
+    position: relative;
+}
+
+.prose pre:hover .copy-code-button {
+    opacity: 1;
+}
+
+.copy-code-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #d4d4d4;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-family: 'Rubik', sans-serif;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+    z-index: 10;
+    direction: rtl;
+}
+
+.copy-code-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.copy-code-button.copied {
+    background: rgba(39, 201, 63, 0.2);
+    border-color: #27c93f;
+    color: #27c93f;
+    opacity: 1;
+}
+
+/* Terminal/command blocks */
+.prose pre[data-language="bash"],
+.prose pre[data-language="shell"],
+.prose pre[data-language="sh"] {
+    background: #0d1117 !important;
+}
+
+.prose pre[data-language="bash"]::before,
+.prose pre[data-language="shell"]::before,
+.prose pre[data-language="sh"]::before {
+    background: #161b22;
+}
+
+/* Ensure all code blocks are LTR */
+pre,
+code,
+.prose pre,
+.prose code,
+.hashnode-content-style pre,
+.hashnode-content-style code {
+    direction: ltr !important;
+    text-align: left !important;
+    unicode-bidi: isolate;
 }

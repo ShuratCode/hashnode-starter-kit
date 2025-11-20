@@ -133,7 +133,6 @@ const Post = ({ publication, post }: PostProps) => {
 				author={post.author}
 				readTimeInMinutes={post.readTimeInMinutes}
 			/>
-			{post.features.tableOfContents.isEnabled && post.features?.tableOfContents?.items?.length > 0 && <PostTOC />}
 			<MarkdownToHtml contentMarkdown={post.content.markdown} />
 			{(post.tags ?? []).length > 0 && (
 				<div className="mx-auto w-full px-5 text-slate-600 dark:text-neutral-300 md:max-w-screen-md">
@@ -169,9 +168,14 @@ export default function PostOrPage(props: Props) {
 			<Layout>
 				<Header />
 				<Container className="pt-10">
-					<article className="flex flex-col items-start gap-10 pb-10">
-						{props.type === 'post' && <Post {...props} />}
-						{props.type === 'page' && <Page {...props} />}
+					<article className="flex flex-row items-start gap-10 pb-10">
+						{props.type === 'post' && props.post.features.tableOfContents.isEnabled && props.post.features?.tableOfContents?.items?.length > 0 && (
+							<PostTOC />
+						)}
+						<div className="flex flex-1 flex-col items-start gap-10">
+							{props.type === 'post' && <Post {...props} />}
+							{props.type === 'page' && <Page {...props} />}
+						</div>
 					</article>
 				</Container>
 				<Footer />

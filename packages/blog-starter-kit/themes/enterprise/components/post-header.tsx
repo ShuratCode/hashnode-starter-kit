@@ -42,11 +42,11 @@ export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes 
 						key={coAuthor.id?.toString()}
 						style={{ zIndex: index + 1 }}
 						className={twJoin(
-							'overflow-hidden rounded-full  bg-slate-200  dark:bg-white/20 md:mr-3',
+							'overflow-hidden rounded-full  bg-slate-200  dark:bg-white/20 md:me-3',
 							index > 0 ? 'hidden md:block' : '',
 							authorsArray.length === 1
 							? 'h-10 w-10 md:h-12 md:w-12'
-							: 'h-8 w-8 border-2 border-slate-100 dark:border-slate-800 md:h-9 md:w-9 [&:not(:first-of-type)]:-ml-3 md:[&:not(:first-of-type)]:-ml-6 ',
+							: 'h-8 w-8 border-2 border-slate-100 dark:border-slate-800 md:h-9 md:w-9 [&:not(:first-of-type)]:-ms-3 md:[&:not(:first-of-type)]:-ms-6 ',
 						)}
 						>
 						<ProfileImage user={coAuthor} width="200" height="200" hoverDisabled={true} />
@@ -56,7 +56,7 @@ export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes 
 						<button
 						onClick={openCoAuthorModal}
 						style={{ zIndex: post.coAuthors?.length }}
-						className="relative -ml-3 flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border-1-1/2 border-slate-100 bg-slate-100 px-1 group-hover:border-slate-200 dark:border-slate-800 dark:bg-slate-600 dark:text-white group-hover:dark:border-slate-700 md:hidden"
+						className="relative -ms-3 flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border-1-1/2 border-slate-100 bg-slate-100 px-1 group-hover:border-slate-200 dark:border-slate-800 dark:bg-slate-600 dark:text-white group-hover:dark:border-slate-700 md:hidden"
 						>
 						<p className="truncate text-xs font-normal">+{post.coAuthors.length}</p>
 						</button>
@@ -64,7 +64,7 @@ export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes 
 					{!post.coAuthors?.length && (
 						<a
 						href={`https://hashnode.com/@${post.author.username}`}
-						className="ml-2 font-semibold text-slate-600 dark:text-white md:ml-0"
+						className="ms-2 font-semibold text-slate-600 dark:text-white md:ms-0"
 						>
 						<span>{post.author.name}</span>
 						</a>
@@ -72,7 +72,7 @@ export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes 
 					{post.coAuthors && post.coAuthors.length > 0 && (
 						<button
 						onClick={openCoAuthorModal}
-						className="ml-2 text-left font-semibold text-slate-600 hover:underline dark:text-white"
+						className="ms-2 text-start font-semibold text-slate-600 hover:underline dark:text-white"
 						>
 						<span>{post.author.name}</span>
 						{post.coAuthors && (

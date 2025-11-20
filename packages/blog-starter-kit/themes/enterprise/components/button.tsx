@@ -25,7 +25,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
 
 			case 'primary':
 				buttonClassName =
-					'text-white bg-primary-600 hover:bg-primary-500 border-primary-600 dark:bg-primary-600 dark:text-white';
+					'text-white bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-blue-600 hover:to-cyan-600 border-transparent dark:from-brand-blue dark:to-brand-cyan dark:text-white';
 				break;
 
 			case 'outline-dark':

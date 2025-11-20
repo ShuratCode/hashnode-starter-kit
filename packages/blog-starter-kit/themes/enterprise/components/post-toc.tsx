@@ -35,7 +35,7 @@ const Toc = ({
 	const children = data.filter((item) => item.parentId === parentId);
 	if (children.length === 0) return null;
 	return (
-		<ul className="mt-5 flex flex-col gap-5 pl-5 font-medium text-slate-800 dark:text-neutral-200">
+		<ul className="mt-5 flex flex-col gap-5 ps-5 font-medium text-slate-800 dark:text-neutral-200">
 			{children.map((item) => (
 				<li key={item.id}>
 					<a
@@ -58,9 +58,9 @@ export const PostTOC = () => {
 	if (!post) return null;
 
 	return (
-		<div className="w-full px-5">
-			<div className="mx-auto w-full max-w-screen-md rounded-lg border border-b-4 border-r-4 p-5 text-base leading-snug dark:border-neutral-800 dark:text-neutral-50 md:p-8 md:text-lg">
-				<h2 className="mb-5 text-lg font-bold md:text-xl">Table of contents</h2>
+		<div className="sticky top-20 start-0 hidden h-fit w-64 self-start pe-5 lg:block">
+			<div className="rounded-lg border border-b-4 border-s-4 p-5 text-base leading-snug dark:border-neutral-800 dark:text-neutral-50 md:p-6 md:text-sm">
+				<h2 className="mb-5 text-lg font-bold md:text-base">תוכן עניינים</h2>
 				<Toc parentId={null} data={mapTableOfContentItems(post.features.tableOfContents.items)} />
 			</div>
 		</div>
